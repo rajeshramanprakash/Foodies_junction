@@ -7,82 +7,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Staff</title>
-    <style>
-        /* body {
-            background: linear-gradient(-100deg, white 50%, deeppink 50%);
-            height: 27vh;
-            font-family: poppins;
-        } */
+   <style>
+       .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+}
 
-        .card {
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-            max-width: 300px;
-            margin: auto;
-            text-align: center;
-            font-family: arial;
-        }
+.container {
+  margin-top: 15%;
+}
 
-        .container {
-            margin-top: 15%;
-        }
+.img-text {
+  width: 100%;
+  height: 300px;
+  display: block;
+  text-align: center;
+  color: red;
+  border-radius: 15px;
+}
 
-        .img-text {
-            width: 100%;
-            height: 300px;
-            display: block;
-            text-align: center;
-            /* padding: 40% 5%; */
-            /* background: #262626; */
-            color: red;
-            border-radius: 15px;
-        }
+.img-text h2 {
+  font-size: 25px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
 
-        .img-text h2 {
-            font-size: 25px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+}
 
-        }
+.img-text p {
+  font-size: 14px;
+}
 
-        .img-text p {
-            font-size: 14px;
-        }
+.carousel-indicators {
+  left: 0;
+  top: auto;
+  bottom: 2px;
+}
 
+.carousel-indicators li {
+  background: 500;
+  border-radius: 60%;
+  width: 15px;
+  height: 15px;
+}
 
+.carousel-indicators .active {
+  background: black;
 
-        /* .img-area {
-            position: absolute;
-            width: 100px;
-            height: 10px;
-            border: 5px solid #fff;
-            overflow: hidden;
-            top: 15px;
-            left: 125px;
-            border-radius: 70%;
-        }
-
-        .img-area img {
-            width: 100%;
-        } */
-
-        .carousel-indicators {
-            left: 0;
-            top: auto;
-            bottom: 2px;
-        }
-
-        .carousel-indicators li {
-            background: 500;
-            border-radius: 60%;
-            width: 15px;
-            height: 15px;
-        }
-
-        .carousel-indicators .active {
-            background: black;
-
-        }
-    </style>
+}
+   </style>
 </head>
 
 <body>

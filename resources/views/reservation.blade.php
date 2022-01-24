@@ -9,9 +9,9 @@
     <title>reservation</title>
     <style>
         #lst {
-            background-color: black;
-            color: wheat;
-        }
+  background-color: black;
+  color: wheat;
+}
     </style>
 </head>
 

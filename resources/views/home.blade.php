@@ -11,21 +11,37 @@
 
 
   <title>Home</title>
-  <style>
-    .bd-placeholder-img {
-      font-size: 1.125rem;
-      text-anchor: middle;
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      user-select: none;
-    }
+<style>
+  
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
 
-    @media (min-width: 768px) {
-      .bd-placeholder-img-lg {
-        font-size: 3.5rem;
-      }
-    }
-  </style>
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+#loginContent {
+ 
+  position: absolute;
+  right: 20px;
+}
+
+#carouselContainer > div{
+  height: 510px;
+}
+.carousel-indicators > .active{
+  background-color: white !important;
+  border: none !important;
+  margin-top: 10px !important;
+}
+</style>
 
 
 </head>
@@ -33,7 +49,7 @@
 <body>
   <header>
     <!-- navigation menu start -->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand logo float-md-start mb-0" href="{{URL('index')}}">
           <img src="images/logo.gif" class="img-fluid rounded-circle" alt="LOGO">
@@ -44,7 +60,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse " id="navbarCollapse">
-          <ul class="navbar-nav me-auto mb-2 mb-md-0  ">
+          <ul class="navbar-nav me-auto mb-2 mb-md-0 align-items-center ">
             <li class="nav-item ">
               <a class="nav-link nav-link-ltr   active" aria-current="page" href="{{URL('home')}}"><i class="fa fa-fw fa-home"></i>&nbsp;Home</a>
             </li>
@@ -53,6 +69,9 @@
             </li>
             <li class="nav-item">
               <a class="nav-link nav-link-ltr" href="{{URL('contact')}}"><i class="fa fa-fw fa-envelope"></i>&nbsp;Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-ltr" aria-current="page" href="{{URL('menu')}}"><i class="fas fa-pizza-slice"></i>&nbsp;Menu Cart</a></a>
             </li>
             <li class="nav-item">
 
@@ -71,96 +90,90 @@
             Cart[0]
 
             @endguest
-
-
-            <li class="nav-item">
-              <a class="nav-link nav-link-ltr" aria-current="page" href="{{URL('menu')}}"><i class="fas fa-pizza-slice"></i>&nbsp;Menu Cart</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
             </li>
+            <li class="nav-item " id='loginContent'>
+              @auth
+              <x-app-layout>
 
-            <li class="nav-item">
-              <a class="nav-link nav-link-ltr" href="{{URL('contact')}}"><i class="fas fa-user-tie"></i>&nbsp;User</a>
-              <ul class="dropdown-menu">
-
-                @if (Route::has('login'))
-                <div class="hidden  nav-link nav-link-ltr  right-0 px-1 py-3 sm:block ">
-                  @auth
-                  <x-app-layout>
-
-                  </x-app-layout>
-
-                  @else
-
-                  <li><a class="nav-link " aria-current="page" href="{{ route('login') }}">&nbsp;<i class="fas fa-sign-in-alt"></i>&nbsp;Log In</a></li>
-
-
-
-                  @if (Route::has('register'))
-
-                  <li><a class="nav-link " aria-current="page" href="{{ route('register') }}">&nbsp;<i class="fas fa-user-plus"></i>&nbsp;Register</a></li>
-
-
+              </x-app-layout>
+              @else
+              <!-- dropdown -->
+              <div class="dropdown">
+                <a class="nav-link nav-link-ltr dropdown-toggle" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="fas fa-user-tie"></i>&nbsp;User
+                </a>
+                <ul class="dropdown-menu bg-dark" aria-labelledby="dropdownMenuLink">
+                  <li>
+                    @if (Route::has('login'))
+                  <li>
+                    <a class="nav-link " aria-current="page" href="{{ route('login') }}">&nbsp;<i class="fas fa-sign-in-alt"></i>&nbsp;Log In</a>
+                  </li>
                   @endif
-                  @endauth
-                </div>
-                @endif
-              </ul>
             </li>
-
+            <li>
+              @if (Route::has('register'))
+            <li>
+              <a class="nav-link " aria-current="page" href="{{ route('register') }}">&nbsp;<i class="fas fa-user-plus"></i>&nbsp;Register</a>
+            </li>
+            @endif
+            </li>
           </ul>
-
         </div>
+        <!-- dropdown close -->
+        @endauth
+        </li>
+        </ul>
+
+        </li>
+      </div>
       </div>
     </nav>
     <!-- navigation menu end here -->
-    <div class="container-sm">
-      <div id="carouselExampleCaptions" class="carousel slide " data-bs-ride="carousel" padding="20px">
-        <!-- indicators on the slide start from here -->
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-          <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
 
-
-        </div>
-        <!-- indicators on the slide end here  -->
-        <!-- items in slide starts from here -->
-        <div class="carousel-inner" color="red">
-          <div class="carousel-item active">
-            <img src="https://source.unsplash.com/1600x900/?food,tasty
-                " class="d-block w-100" alt="North Indian Food">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Yummy Food</h5>
-              <p>We have expert chief to cook your yummy food. </p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://source.unsplash.com/1600x900/?Smoothie,cold-drink
-                " class="d-block w-100" alt="South Indian Food">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Beverage</h5>
-              <p>We serve all the Beverage.</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="https://source.unsplash.com/1600x900/?Room service,Hotel room
-                " class="d-block w-100" alt="...">
-            <div class="carousel-caption d-none d-md-block">
-              <h5>Delux Room</h5>
-              <p>We provide best room and services here.</p>
-            </div>
-          </div>
-
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+    <!-- indicators on the slide start from here -->
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
+      <!-- indicators on the slide end here  -->
+      <!-- items in slide starts from here  -->
+      <div class="carousel-inner" id="carouselContainer">
+        <div class="carousel-item active">
+          <img src="https://source.unsplash.com/1600x900/?food,tasty" class="d-block w-100" alt="North Indian Food">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Yummy Food</h5>
+            <p>We have expert chief to cook your yummy food. </p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://source.unsplash.com/1600x900/?Smoothie,cold-drink" class="d-block w-100" alt="South Indian Food">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Beverage</h5>
+            <p>We serve all the Beverage.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="https://source.unsplash.com/1600x900/?Room service,Hotel room
+            " class="d-block w-100" alt="Fast Food">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Delux Room</h5>
+            <p>We provide best room and services here.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
+
+    <!-- items in slide end from here  -->
   </header>
   @include("food")
   @include("reservation")
