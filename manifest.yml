@@ -1,0 +1,4 @@
+apps:
+- name: foodi
+  random-route: true
+  memory: 255M
